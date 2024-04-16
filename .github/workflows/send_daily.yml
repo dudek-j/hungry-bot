@@ -1,0 +1,26 @@
+name: Send daily
+
+on:
+  schedule:
+    - cron:  '0 8 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - name: Install pipenv
+        run: |
+          pip install pipenv
+          pipenv install
+      - name: Run bot
+        run: |
+          pipenv run python hungry.py
+        env:
+          HUNGRY_SLACK_URL: ${{secrets.HUNGRY_SLACK_URL}}
