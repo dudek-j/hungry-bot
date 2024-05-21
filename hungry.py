@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from lib.slack import send_to_slack
+from restaurants.indian_bistro import get_indian_bistro
 from restaurants.jesper import get_jesper
 from restaurants.kages import get_kages
 from restaurants.kebab import get_kebab
@@ -15,6 +16,7 @@ def main():
         get_kages(day_of_week),
         get_kebab(day_of_week),
         get_jesper(day_of_week),
+        get_indian_bistro(day_of_week),
     ]
 
     send_to_slack(menus)

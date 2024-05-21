@@ -4,7 +4,7 @@ import requests
 
 def get_soup(url):
     response = requests.get(url)
-    html = response.text
+    html = response.content.decode("utf-8", "ignore")
     return bs4.BeautifulSoup(html, "html.parser")
 
 
