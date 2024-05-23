@@ -6,6 +6,7 @@ from restaurants.jesper import get_jesper
 from restaurants.kages import get_kages
 from restaurants.kebab import get_kebab
 from restaurants.lilla_hanoi import get_hanoi
+from restaurants.saigon import get_saigon
 
 
 def main():
@@ -17,6 +18,7 @@ def main():
         get_kebab(day_of_week),
         get_jesper(day_of_week),
         get_indian_bistro(day_of_week),
+        get_saigon(day_of_week),
     ]
 
     send_to_slack(menus)
