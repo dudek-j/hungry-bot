@@ -29,7 +29,7 @@ def parse_week(week: Tag, today):
     fixed = [parse_section(section) for section in sections[:3]]
     today = parse_section(sections[3:][today])
 
-    return "\n\n".join(fixed) + "\n\n" + today
+    return "*Veckans*\n" + "\n\n".join(fixed) + "\n\n*Dagens*\n" + today
 
 
 def parse_section(today: Tag) -> str:
